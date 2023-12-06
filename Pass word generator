@@ -1,0 +1,33 @@
+import random
+import string
+
+def generate_password(length):
+    # Define character sets for different complexity levels
+    lower_case_letters = string.ascii_lowercase
+    upper_case_letters = string.ascii_uppercase
+    digits = string.digits
+    special_characters = string.punctuation
+
+    # Combine character sets based on desired complexity
+    all_characters = lower_case_letters + upper_case_letters + digits + special_characters
+
+    # Ensure the password length is at least 8 characters
+    length = max(length, 8)
+
+    # Generate the password
+    password = ''.join(random.choice(all_characters) for _ in range(length))
+    
+    return password
+
+def main():
+    print("Password Generator")
+
+    # Input from the user: desired password length
+    length = int(input("Enter the desired length of the password: "))
+
+    # Generate and display the password
+    password = generate_password(length)
+    print("Generated Password:", password)
+
+if __name__ == "__main__":
+    main()
